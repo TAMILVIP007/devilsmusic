@@ -84,8 +84,8 @@ async def playthis(client: Client, message_: Message):
         res.delete
         m = await client.send_photo(
         chat_id=message_.chat.id,
-        photo="https://telegra.ph/file/5113434dcbd3e627a8b5d.jpg",
-        caption=f"Don't Forget to add @IGRISMUSIC in group to listen your song.",
+        photo="https://telegra.ph/file/dac903d4620cc5fffe91c.jpg",
+        caption=f"Don't Forget to add @JARVISMUSICASSISTANT in group to listen your song.",
          ) 
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
 
@@ -176,7 +176,7 @@ async def playm(client: Client, message_: Message):
     res.delete
     m = await client.send_photo(
         chat_id=message_.chat.id,
-        caption=f"Add @IGRISMUSIC in group to listen this song `{query}` Via IGRISXROBOT",
+        caption=f"Add @JARVISMUSICASSISTANT in group to listen this song `{query}` Via IGRISXROBOT",
         photo="final.png",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Watch on Youtube", url=link)]]
