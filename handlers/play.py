@@ -68,7 +68,7 @@ async def playthis(client: Client, message_: Message):
                         offset, length = entity.offset, entity.length
                         break
 
-        if offset == None:
+        if offset is None:
             await res.edit_text("❕ You did not give me anything to play.")
             return
 
@@ -83,10 +83,11 @@ async def playthis(client: Client, message_: Message):
         await res.edit_text("▶️ Playing...")
         res.delete
         m = await client.send_photo(
-        chat_id=message_.chat.id,
-        photo="https://telegra.ph/file/dac903d4620cc5fffe91c.jpg",
-        caption=f"Don't Forget to add @JARVISMUSICASSISTANT in group to listen your song.",
-         ) 
+            chat_id=message_.chat.id,
+            photo="https://telegra.ph/file/dac903d4620cc5fffe91c.jpg",
+            caption="Don't Forget to add @JARVISMUSICASSISTANT in group to listen your song.",
+        )
+
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
 
 @Client.on_message(
@@ -136,8 +137,7 @@ def changeImageSize(maxWidth, maxHeight, image):
     heightRatio = maxHeight / image.size[1]
     newWidth = int(widthRatio * image.size[0])
     newHeight = int(heightRatio * image.size[1])
-    newImage = image.resize((newWidth, newHeight))
-    return newImage
+    return image.resize((newWidth, newHeight))
  
 @Client.on_message(
     filters.command("playm")
@@ -162,7 +162,7 @@ async def playm(client: Client, message_: Message):
             "Found Literally Nothing."
         )
         is_playing = False
-        print(str(e))
+        print(e)
         return
     file_path = await convert(download(link))
     if message_.chat.id in tgcalls.pytgcalls.active_calls:
